@@ -5,10 +5,10 @@ import { createTransformer, transformers } from "./transformer";
 export const UNSMART_JSON = {
     desolve,
     resolve,
-    stringify : (input : unknown) => {
+    stringify: (input: unknown) => {
         return JSON.stringify(desolve(input));
     },
-    parse : (stringified: string) => {
+    parse: (stringified: string) => {
         return resolve(JSON.parse(stringified));
     },
     createTransformer,
@@ -19,7 +19,7 @@ export {
     desolve,
     resolve,
     createTransformer,
-    transformers,    
+    transformers,
 }
 
 export * from "./constants";
