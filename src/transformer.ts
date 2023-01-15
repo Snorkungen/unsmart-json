@@ -41,14 +41,14 @@ createTransformer<RegExp>("regex", {
     },
 });
 
-createTransformer<Map<any, any>>("map", {
+createTransformer<Map<any, any>, any[]>("map", {
     test(val) {
         return val instanceof Map;
     },
     serialize(val) {
-        return JSON.stringify([...val.entries()])
+        return [...val.entries()]
     },
     deserialize(val) {
-        return new Map(JSON.parse(val));
+        return new Map(val);
     },
 })
