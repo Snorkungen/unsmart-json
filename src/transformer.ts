@@ -1,14 +1,14 @@
 import { DELIMETER } from "./constants";
 
-export type TTransformer<T = unknown> = {
+export type TTransformer<T = unknown, S = unknown> = {
     test: (val: unknown) => boolean;
-    serialize: (val: T) => string;
-    deserialize: (val: ReturnType<TTransformer["serialize"]>) => T;
+    serialize: (val: T) => S;
+    deserialize: (val: ReturnType<TTransformer<T, S>["serialize"]>) => T;
 }
 
-export const transformers: Record<string, TTransformer<any>> = {};
+export const transformers: Record<string, TTransformer<any, any>> = {};
 
-export function createTransformer<T>(name: string, transformer: TTransformer<T>) {
+export function createTransformer<T, S = string>(name: string, transformer: TTransformer<T, S>) {
     return transformers[name] = transformer;
 }
 
@@ -16,12 +16,12 @@ export function createTransformer<T>(name: string, transformer: TTransformer<T>)
     Below only create transformers
 */
 
-createTransformer<Date>("date", {
+createTransformer<Date, number>("date", {
     test(val) {
         return val instanceof Date;
     },
     serialize(val) {
-        return val.toString();
+        return val.getTime();
     },
     deserialize(val) {
         return new Date(val);
@@ -41,7 +41,7 @@ createTransformer<RegExp>("regex", {
     },
 });
 
-createTransformer<Map<any,any>>("map",{
+createTransformer<Map<any, any>>("map", {
     test(val) {
         return val instanceof Map;
     },

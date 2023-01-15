@@ -23,3 +23,4 @@ export {
 }
 
 export * from "./constants";
+export default UNSMART_JSON;

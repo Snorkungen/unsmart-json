@@ -1,12 +1,13 @@
 {
     "compilerOptions": {
         "target": "ES2022",
-
+        "esModuleInterop": true,
         "strict": true,
         "noImplicitAny": true,
         "outDir": "./dist"
     },
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "test/**/*",
     ]
 }
