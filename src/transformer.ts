@@ -52,3 +52,27 @@ createTransformer<Map<any, any>, any[]>("map", {
         return new Map(val);
     },
 })
+
+createTransformer<Set<any>, any[]>("Set", {
+    test(val) {
+        return val instanceof Set;
+    },
+    serialize(val) {
+        return [...val.values()]
+    },
+    deserialize(val) {
+        return new Set(val);
+    },
+});
+
+createTransformer<URL, string>("URL", {
+    test(val) {
+        return val instanceof URL;
+    },
+    serialize(val) {
+        return val.toString();
+    },
+    deserialize(val) {
+        return new URL(val);
+    },
+})
