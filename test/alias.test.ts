@@ -1,4 +1,4 @@
-import alias, { createShortKey } from "../src/alias";
+import alias, { createShortKey, TAliased } from "../src/alias";
 import { DEFAULT_CHAR_CODE } from "../src/constants";
 
 describe("ShortKey", () => {
@@ -65,7 +65,7 @@ describe("Alias json", () => {
                 }
             ]
         }, aliased = alias(data);
-        let expexted = [{
+        let expexted : TAliased= [{
             array: [
                 {
                     [relative_shortKeys[0]]: "1", [relative_shortKeys[1]]: 0, [relative_shortKeys[2]]: [
