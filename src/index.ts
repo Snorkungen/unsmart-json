@@ -2,6 +2,8 @@ import desolve from "./desolve";
 import resolve from "./resolve";
 import { createTransformer, transformers } from "./transformer";
 
+import alias from "./alias";
+
 export const UNSMART_JSON = {
     desolve,
     resolve,
@@ -12,7 +14,9 @@ export const UNSMART_JSON = {
         return resolve(JSON.parse(stringified));
     },
     createTransformer,
-    transformers
+    transformers,
+    
+    alias
 }
 
 export {
@@ -20,6 +24,8 @@ export {
     resolve,
     createTransformer,
     transformers,
+
+    alias
 }
 
 export * from "./constants";
