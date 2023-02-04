@@ -3,6 +3,7 @@ import resolve from "./resolve";
 import { createTransformer, transformers } from "./transformer";
 
 import alias from "./alias";
+import dealias from "./dealias";
 
 export const UNSMART_JSON = {
     desolve,
@@ -16,7 +17,8 @@ export const UNSMART_JSON = {
     createTransformer,
     transformers,
     
-    alias
+    alias,
+    dealias
 }
 
 export {
@@ -25,7 +27,8 @@ export {
     createTransformer,
     transformers,
 
-    alias
+    alias,
+    dealias
 }
 
 export * from "./constants";
