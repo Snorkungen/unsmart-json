@@ -5,7 +5,7 @@ import { transformers } from "./transformer";
 export type TDesolve = typeof desolve;
 export type TDesolved = ReturnType<TDesolve>;
 
-interface Ijson {
+export interface Ijson {
     [key: string | number]: string | Ijson;
 }
 
