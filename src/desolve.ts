@@ -6,7 +6,7 @@ export type TDesolve = typeof desolve;
 export type TDesolved = ReturnType<TDesolve>;
 
 export interface Ijson {
-    [key: string | number]: string | Ijson;
+    [x: string | number | symbol]: any | Ijson;
 }
 
 export default function desolve(input: unknown): {
