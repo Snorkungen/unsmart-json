@@ -1,13 +1,19 @@
 {
     "compilerOptions": {
-        "target": "ES2022",
+        "module": "CommonJS",
+        "target": "ES2018",
         "esModuleInterop": true,
         "strict": true,
         "noImplicitAny": true,
-        "outDir": "./dist"
+        "declaration": true,
+        "moduleResolution": "node",
+        "rootDir": "./src",
+        "outDir": "./dist",
     },
     "include": [
         "src/**/*",
-        "test/**/*",
+    ],
+    "exclude": [
+        "**/*.test.ts"
     ]
 }
